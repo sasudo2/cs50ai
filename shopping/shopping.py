@@ -150,13 +150,13 @@ def evaluate(labels, predictions):
             actual_positive += 1
             if prediction == 1:
                 correctly_labled_positive += 1
-        else:
+        if label == 0:
             actual_negative += 1
             if prediction == 0:
                 correctly_labled_negative += 1
 
     sensitivity = float(correctly_labled_positive)/float(actual_positive)
-    specificity = float(correctly_labled_positive)/float(actual_negative)
+    specificity = float(correctly_labled_negative)/float(actual_negative)
 
     return (sensitivity, specificity)
 
